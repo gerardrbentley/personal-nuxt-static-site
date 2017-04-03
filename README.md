@@ -25,7 +25,7 @@ documentation https://docs.gitlab.com/ce/user/project/pages/.
 This project's static Pages are built by [GitLab CI][ci], following the steps
 defined in [`.gitlab-ci.yml`](.gitlab-ci.yml):
 
-```
+```yml
 image: node
 
 before_script:
@@ -50,11 +50,11 @@ pages:
 To work locally with this project, you'll have to follow the steps below:
 
 1. Fork, clone or download this project
-1. [Install][] Nuxt
+1. [Install] Nuxt
 1. Generate and preview the website with hot-reloading: `npm run dev` or `nuxt`
 1. Add content
 
-Read more at Nuxt's [documentation][].
+Read more at Nuxt's [documentation].
 
 ## GitLab User or Group Pages
 
