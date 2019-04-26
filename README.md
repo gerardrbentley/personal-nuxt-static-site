@@ -88,4 +88,4 @@ unless you want to contribute back to the upstream project.
 
 ----
 
-Forked from @haleksandre
+Created using https://github.com/nuxt/create-nuxt-app

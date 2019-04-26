@@ -1,13 +1,17 @@
-module.exports = {
+import pkg from './package'
+
+export default {
+  mode: 'universal',
+
   /*
   ** Headers of the page
   */
   head: {
-    title: 'starter',
+    title: pkg.name,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -17,7 +21,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#fff' },
 
   /*
   ** Customize the generated output folder
@@ -34,14 +38,33 @@ module.exports = {
   },
 
   /*
+  ** Global CSS
+  */
+  css: [
+  ],
+
+  /*
+  ** Plugins to load before mounting the App
+  */
+  plugins: [
+  ],
+
+  /*
+  ** Nuxt.js modules
+  */
+  modules: [
+  ],
+
+  /*
   ** Build configuration
   */
   build: {
     /*
-    ** Run ESLINT on save
+    ** You can extend webpack config here
     */
-    extend (config, ctx) {
-      if (ctx.isClient) {
+    extend(config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,

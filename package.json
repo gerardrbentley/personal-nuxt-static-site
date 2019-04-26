@@ -1,15 +1,8 @@
 {
   "name": "nuxt-gitlab-pages",
   "version": "1.0.0",
-  "description": "Nuxt example for Gitlab Pages",
-  "author": {
-    "name": "Alexandre Villeneuve",
-    "email": "haleksviller@gmail.com"
-  },
+  "description": "Nuxt.js example for GitLab Pages",
   "private": true,
-  "dependencies": {
-    "nuxt": "latest"
-  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -18,13 +11,23 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.4.0"
+  },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
-    "eslint": "^3.15.0",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-loader": "^1.6.1",
-    "eslint-plugin-html": "^2.0.0",
-    "eslint-plugin-promise": "^3.4.1",
-    "eslint-plugin-standard": "^2.0.1"
+    "nodemon": "^1.18.9",
+    "@nuxtjs/eslint-config": "^0.0.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.1",
+    "eslint-config-standard": ">=12.0.0",
+    "eslint-plugin-import": ">=2.16.0",
+    "eslint-plugin-jest": ">=22.3.0",
+    "eslint-plugin-node": ">=8.0.1",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-promise": ">=4.0.1",
+    "eslint-plugin-standard": ">=4.0.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-vue": "^5.2.2"
   }
 }
