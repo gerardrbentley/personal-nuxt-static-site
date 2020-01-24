@@ -16,14 +16,35 @@ You should be able to log in with the button labelled
 #+END_VERSE
 
 Our FAIM projects are under the faim-lab group and should all be accessible to you.
+
 We'll use this to keep track of our goals, bugs, and progress on each project with the Issue Boards.
 
-In order to push and pull code from gitlab you'll need to set up an SSH key on your local computer.
-Good instructions can be found at [[https://docs.gitlab.com/ee/ssh/#generating-a-new-ssh-key-pair]].
-Your settings page should look like this:
+* Action Item
+
+In order to push and pull code from gitlab you'll need to set up an SSH key on your local computer (understanding SSH isn't super important, basically it's to secure the connection over the internet).
+
+Good instructions can be found at [[https://docs.gitlab.com/ee/ssh/#generating-a-new-ssh-key-pair]]. I'll summarize here:
+
+- Open a [[file:terminal.org][Terminal]] window
+- Type the following command followed by Enter, then use Enter to confirm default settings unless you know you have another ed25519 Key. It’s a best practice to use a password, but it’s not required and you can skip creating it by pressing Enter twice.
+#+BEGIN_SRC bash
+ssh-keygen -t ed25519 -C "gitlab-faim"
+#+END_SRC
+- Type the following in the Terminal, followed by Enter,
+#+BEGIN_SRC bash
+pbcopy < ~/.ssh/id_ed25519.pub
+#+END_SRC
+
+Now the key you just created is saved in your clipboard (essentially cmd+c / copy) and you should follow these (from the link above)
+#+BEGIN_QUOTE
+Add your public SSH key to your GitLab account by:
+
+-Clicking your avatar in the upper right corner and selecting Settings.
+-Navigating to SSH Keys and pasting your public key from the clipboard into the Key field. 
+-Click the Add key button.
+#+END_QUOTE
+
+Afterwards your settings page should look like this (with 1 key instead of 2) and you're ready to [[file:gitlab_workflow][contribute code]]!:
 
 [[./ssh_gitlab.png]]
 
-This project was published with the following =.gitlab-ci.yml=:
-
-#+INCLUDE: ".gitlab-ci.yml" src conf
