@@ -1,6 +1,6 @@
 #+title: Code Editor
 #+author: Gerard Bentley
-#+date: <2020-01-24 Fri>
+#+date: <2020-01-23 Thu>
 
 You can use any text editing software you like (even google docs) to write code.
 However, specific code editor programs are great at helping you code more efficiently and with fewer errors.

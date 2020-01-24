@@ -1,6 +1,6 @@
 #+title: Related Research Papers
 #+author: Gerard Bentley
-#+date: <2020-01-24 Fri>
+#+date: <2020-01-25 Sat>
 
 This is a curated list of papers that have been relevant to one or more of our projects, separated by project and rough topic.
 

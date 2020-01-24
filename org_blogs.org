@@ -1,6 +1,6 @@
 #+title: Org-mode powered sites and blogs spotted in the wild
 #+author: Rasmus
-#+date: <2020-01-23 Thu>
+#+date: <2020-01-26 Sun>
 
 Originally sourced from [[https://gitlab.com/pages/org-mode]]. Links may be dead, more may be added.
 Here's some examples of pages generated using =ox-publish.el= and

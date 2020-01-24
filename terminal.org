@@ -1,6 +1,6 @@
 #+title: Terminal Basics
 #+author: Gerard Bentley
-#+date: <2020-01-23 Thu>
+#+date: <2020-01-22 Wed>
 
 The Terminal, also called [[https://askubuntu.com/questions/506510/what-is-the-difference-between-terminal-console-shell-and-command-line][shell, console, command line]] (with a fair bit of nuance)
 lets you access programs and files and execute commands on those programs and files without opening any apps or windows, it all stays in the terminal.

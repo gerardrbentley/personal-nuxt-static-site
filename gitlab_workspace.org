@@ -1,6 +1,6 @@
 #+title: Gitlab Workspace
 #+author: Gerard Bentley
-#+date: <2020-01-22 Wed>
+#+date: <2020-01-21 Tue>
 
 [[https://gitlab.com/][Gitlab]] is a tool for individuals and teams to host their code for a project in a common location (Repository).
 
