@@ -1,0 +1,8 @@
+pages:
+  script:
+  - mkdir .public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
