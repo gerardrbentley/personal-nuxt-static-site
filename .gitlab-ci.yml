@@ -1,17 +1,18 @@
-image: node
+image: iquiw/alpine-emacs
 
-before_script:
-  - npm install
-
-cache:
-  paths:
-    - node_modules/
-
-pages:
+.build: &build
   script:
-    - npm run generate
+  - emacs --batch --no-init-file --load publish.el --funcall org-publish-all
   artifacts:
     paths:
-      - public
+    - public
+
+pages:
+  <<: *build
   only:
-    - master
+  - master
+
+test:
+  <<: *build
+  except:
+  - master
