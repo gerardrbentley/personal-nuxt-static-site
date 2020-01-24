@@ -4,7 +4,7 @@
 <!-- 2020-01-24 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gitlab Workspace</title>
+<title>Lab Members</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="Gerard Bentley">
 <style type="text/css">
@@ -247,96 +247,22 @@ for the JavaScript code in this tag.
   <a href="/">Sitemap</a>
   <a href="/introduction.html">Intro</a>
   <a href="/research_papers.html">Papers</a>
+  <a href="/people.html">People</a>
 </nav>
 </header>
 <main id="content">
 <header>
-<h1 class="title">Gitlab Workspace</h1>
+<h1 class="title">Lab Members</h1>
 </header><p>
-<a href="https://gitlab.com/">Gitlab</a> is a tool for individuals and teams to host their code for a project in a common location (Repository).
+People in the FAIM lab family
 </p>
 
 <p>
-<a href="https://github.com/">Github</a> is an extremely similar and probably still more popular service. Fewer features than gitlab, but still gets the job done of preserving and sharing code.
-</p>
-
-<p>
-Both rely on <a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control">git</a> in the background and on your local computer to maintain the history of all the files (details aren&rsquo;t super important, but impact is)
-</p>
-
-<p>
-We have our own instance of gitlab <a href="https://pom-itb-gitlab01.campus.pomona.edu/faim-lab">here</a> that is only accessible on Pomona wifi / VPN.
-You should be able to log in with the button labelled
-</p>
-<p class="verse">
-&rsquo;Sign in with&rsquo;<br>
-&ldquo;Claremont CAS&rdquo;<br>
-</p>
-
-<p>
-Our FAIM projects are under the faim-lab group and should all be accessible to you.
-</p>
-
-<p>
-We&rsquo;ll use this to keep track of our goals, bugs, and progress on each project with the Issue Boards.
-</p>
-
-<section id="outline-container-org4d529cd" class="outline-2">
-<h2 id="org4d529cd">Action Item</h2>
-<div class="outline-text-2" id="text-org4d529cd">
-<p>
-In order to push and pull code from gitlab you&rsquo;ll need to set up an SSH key on your local computer (understanding SSH isn&rsquo;t super important, basically it&rsquo;s to secure the connection over the internet).
-</p>
-
-<p>
-Good instructions can be found at <a href="https://docs.gitlab.com/ee/ssh/#generating-a-new-ssh-key-pair">https://docs.gitlab.com/ee/ssh/#generating-a-new-ssh-key-pair</a>. I&rsquo;ll summarize here:
-</p>
-
-<ul class="org-ul">
-<li>Open a <a href="terminal.html">Terminal</a> window</li>
-<li>Type the following command followed by Enter, then use Enter to confirm default settings unless you know you have another ed25519 Key. It’s a best practice to use a password, but it’s not required and you can skip creating it by pressing Enter twice.</li>
-</ul>
-<div class="org-src-container">
-<pre class="src src-bash">ssh-keygen -t ed25519 -C <span style="font-style: italic;">"gitlab-faim"</span>
-</pre>
-</div>
-<ul class="org-ul">
-<li>Type the following in the Terminal, followed by Enter,</li>
-</ul>
-<div class="org-src-container">
-<pre class="src src-bash">pbcopy &lt; ~/.ssh/id_ed25519.pub
-</pre>
-</div>
-
-<p>
-Now the key you just created is saved in your clipboard (essentially cmd+c / copy) and you should follow these (from the link above)
-</p>
-<blockquote>
-<p>
-Add your public SSH key to your GitLab account by:
-</p>
-
-<p>
--Clicking your avatar in the upper right corner and selecting Settings.
--Navigating to SSH Keys and pasting your public key from the clipboard into the Key field. 
--Click the Add key button.
-</p>
-</blockquote>
-
-<p>
-Afterwards your settings page should look like this (with 1 key instead of 2) and you&rsquo;re ready to <a href="gitlab_workflow">contribute code</a>!:
-</p>
-
-
-<figure>
-<img src="./ssh_gitlab.png" alt="ssh_gitlab.png">
-
-</figure>
-</div>
-</section>
+Joe Osborn. MatrixID: joeosborn
+Gerard Bentley. MatrixID: gerardrbentley</p>
 </main>
 <footer id="postamble" class="status">
-<p class="date">Date: 2020-01-21</p>
+<p class="date">Date: 2020-01-24</p>
 <p class="author">Author: Gerard Bentley</p>
 <p class="date">Created: 2020-01-24</p>
 </footer>

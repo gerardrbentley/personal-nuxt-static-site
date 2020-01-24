@@ -4,6 +4,10 @@
 
 One goal of using Gitlab is to not clobber one another's work, even when working on different features and recombining new code.
 
+* Action Item
+Your first task, which will hopefully be a useful example reference in the future, is to contribute to this website by adding your information to the [[file:people.org][People]] page.
+
+
 Cloning and Branching:
 
 Fixing your local Repo:

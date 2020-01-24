@@ -1,0 +1,8 @@
+#+title: Lab Members
+#+author: Gerard Bentley
+#+date: <2020-01-24 Fri>
+
+People in the FAIM lab family
+
+Joe Osborn. MatrixID: joeosborn
+Gerard Bentley. MatrixID: gerardrbentley

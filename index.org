@@ -4,6 +4,7 @@
 - [[file:introduction.org][FAIM Introduction]]
 - [[file:terminal.org][Terminal Basics]]
 - [[file:org_blogs.org][Org-mode powered sites and blogs spotted in the wild]]
+- [[file:people.org][Lab Members]]
 - [[file:code_editors.org][Code Editor]]
 - [[file:research_papers.org][Related Research Papers]]
 - [[file:gitlab_workflow.org][Git Workflow]]
