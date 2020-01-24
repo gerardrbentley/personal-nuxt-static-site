@@ -1,4 +1,4 @@
-image: iquiw/alpine-emacs
+image: silex/emacs
 
 .build: &build
   script:
