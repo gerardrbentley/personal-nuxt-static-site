@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2020-01-24 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terminal Basics</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Gerard Bentley">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<header id="top" class="status">
+<h1 class="title">FAIM Resources
+</h1>
+<nav>
+  <a href="/">Sitemap</a>
+  <a href="/Introduction">Intro</a>
+  <a href="/Papers">Papers</a>
+</nav>
+</header>
+<main id="content">
+<header>
+<h1 class="title">Terminal Basics</h1>
+</header><p>
+The Terminal, also called <a href="https://askubuntu.com/questions/506510/what-is-the-difference-between-terminal-console-shell-and-command-line">shell, console, command line</a> (with a fair bit of nuance)
+lets you access programs and files and execute commands on those programs and files without opening any apps or windows, it all stays in the terminal.
+</p>
+
+<p>
+*Basic Navigation
+</p>
+
+<p>
+When you open Terminal.app (on mac you can use command-spacebar then search `Terminal`) all you get is a blank command line prompt, probably ending with `$`
+</p>
+
+<p>
+The terminal works like a filesystem/Finder window in that you need to navigate &rsquo;up&rsquo; and &rsquo;down&rsquo; folders to find different files.
+When you open a new Terminal it is most likely located at your account&rsquo;s Home folder (also referred to as ~).
+</p>
+
+<p>
+**NOTE: On Mac the ~ can be replaced with <i>Users/YOUR-USERNAME</i> for an absolute path (<a href="https://www.linuxnix.com/abslute-path-vs-relative-path-in-linuxunix/">absolute vs relative</a> explanation)
+For reference, your Desktop folder is located at ~/Desktop, your Documents at ~/Documents
+</p>
+
+<p>
+Now for the 3 Basic commands that will help you navigate around:
+</p>
+
+<p>
+**pwd
+</p>
+
+<p>
+`Print Working Directory`: Tells you where in the filesystem the command line is currently pointed. On a fresh Terminal window it should show <i>Users/YOUR-USERNAME</i>
+</p>
+
+<p>
+**ls
+</p>
+
+<p>
+`List`: Lists out all the files and directories in the current directory you&rsquo;re pointed at. Also helps you know where in the filesystem you are
+</p>
+
+<p>
+**cd
+</p>
+
+<p>
+`Change Directory`: Actually moves where the command line is pointed to a different directory / folder.
+</p>
+
+<p>
+The common uses of `cd` and `ls`:
+</p>
+
+<p>
+**Go to your project folder
+</p>
+
+<p>
+On my personal computer I try to keep all my coding projects under a folder called `research` (in their own individual folders) which is in my Home folder (~/research or /Users/Gerard/research)
+</p>
+
+<p>
+So to get to my project I open terminal and enter
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="font-weight: bold;">cd</span> research/my-project-folder
+</pre>
+</div>
+<p>
+***NOTE: This works because the Terminal is already pointed at my ~/ directory and `research` is in that directory. You can use `ls` to see if `research` is present
+</p>
+
+<p>
+If you don&rsquo;t remember the project-folder name you can do the following
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="font-weight: bold;">cd</span> research
+ls
+</pre>
+</div>
+<p>
+This will show you all the files and folders in `research`, then you can simply
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="font-weight: bold;">cd</span> project-folder-i-remember-now
+</pre>
+</div>
+
+<p>
+**Go back one or more directories
+As ~/ is equivalent to <i>Users/YOUR-USERNAME</i> on mac, ./ is equivalent to `pwd`/
+</p>
+
+<p>
+By this I mean that `.` represents the current working directory, where the terminal command line is pointed.
+</p>
+
+<p>
+So the same command from before works the same like this (from a fresh Terminal located at ~/)
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="font-weight: bold;">cd</span> ./research/my-project-folder
+</pre>
+</div>
+
+<p>
+After executing that command, `pwd` will tell you the Terminal is at /Users/Gerard/research/my-project-folder, which we want because we just `cd`d into that directory
+</p>
+
+<p>
+If we wanted to switch projects (to a different folder in `research`), we need to go &rsquo;up&rsquo; a folder. To do this we use `..` to represent the folder &rsquo;above&rsquo; the current folder
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="font-weight: bold;">cd</span> ..
+</pre>
+</div>
+<p>
+This brings us back to `research`, so `pwd` will say <i>Users/Gerard/research</i>
+</p>
+
+<p>
+Now we can cd into a different folder
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="font-weight: bold;">cd</span> my-other-project-folder
+</pre>
+</div>
+
+<p>
+If we wanted to switch to a different project directly in one command we can use
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="font-weight: bold;">cd</span> ../third-folder
+</pre>
+</div>
+<p>
+I think of this as `going to third-folder, which is in the folder above the current one`
+</p>
+</main>
+<footer id="postamble" class="status">
+<p class="date">Date: 2020-01-23</p>
+<p class="author">Author: Gerard Bentley</p>
+<p class="date">Created: 2020-01-24</p>
+</footer>
+</body>
+</html>
