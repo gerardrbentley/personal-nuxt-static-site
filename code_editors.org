@@ -1,0 +1,13 @@
+#+title: Code Editor
+#+author: Gerard Bentley
+#+date: <2020-01-24 Fri>
+
+You can use any text editing software you like (even google docs) to write code.
+However, specific code editor programs are great at helping you code more efficiently and with fewer errors.
+- [[https://www.gnu.org/software/emacs/][Emacs]]: Older text-based style, but a great long-term investment to learn and recommended by Prof Osborn
+- [[https://code.visualstudio.com/][VSCode]]: Very popular and modern, easier to set up and get used to than emacs. Wide support online and on youtube
+
+For the sake of choice here are some other commonly used programs:
+- [[https://atom.io/][Atom]]: Also pretty popular, I prefer VS code, pretty similar experience
+- [[https://www.sublimetext.com/][Sublime]]: Never used it, but still somewhat relevant
+- [[https://www.jetbrains.com/pycharm/][PyCharm]]: Integrated Development Environment (IDE) specificly for python, I've never felt the need to use it but if you're just trying out python it may help

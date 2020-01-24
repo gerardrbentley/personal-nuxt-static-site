@@ -1,0 +1,28 @@
+#+title: Git Workflow
+#+author: Gerard Bentley
+#+date: <2020-01-24 Fri>
+
+One goal of using Gitlab is to not clobber one another's work, even when working on different features and recombining new code.
+
+Cloning and Branching:
+
+Fixing your local Repo:
+
+Broken / Wrong Origin link
+
+Hard reset all files (fetch other's work)
+
+Fixing the remote Repo:
+
+Pushed wrong files to Gitlab. Sometimes you have temporary files / images locally that you don't need to push to everyone via Gitlab.
+
+SOLUTION:
+Files and folders listed in .gitignore will not be tracked by git (i.e. you can use `add .` and it won't wrongfully add gitignored files). Learn more on gitignore syntax [[https://www.atlassian.com/git/tutorials/saving-changes/gitignore][here]].
+
+After updating .gitignore to list the files you want to remove from remote gitlab,
+#+BEGIN_SRC
+git rm -r --cached .
+git add .
+#+END_SRC
+This assumes there are files you need to `re-ignore` in folders throughout the project. If it's a single folder ('./VERY_FULL_FOLDER') or file ('./path/to/one_file_to_remove.py')
+then you should replace the `.` in the first command to that path (i.e. `./VERY_FULL_FOLDER`) and only the files in that folder will be searched.

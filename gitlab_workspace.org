@@ -1,0 +1,29 @@
+#+title: Gitlab Workspace
+#+author: Gerard Bentley
+#+date: <2020-01-22 Wed>
+
+[[https://gitlab.com/][Gitlab]] is a tool for individuals and teams to host their code for a project in a common location (Repository).
+
+[[https://github.com/][Github]] is an extremely similar and probably still more popular service. Fewer features than gitlab, but still gets the job done of preserving and sharing code.
+
+Both rely on [[https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control][git]] in the background and on your local computer to maintain the history of all the files (details aren't super important, but impact is)
+
+We have our own instance of gitlab [[https://pom-itb-gitlab01.campus.pomona.edu/faim-lab][here]] that is only accessible on Pomona wifi / VPN.
+You should be able to log in with the button labelled
+#+BEGIN_VERSE
+'Sign in with'
+"Claremont CAS"
+#+END_VERSE
+
+Our FAIM projects are under the faim-lab group and should all be accessible to you.
+We'll use this to keep track of our goals, bugs, and progress on each project with the Issue Boards.
+
+In order to push and pull code from gitlab you'll need to set up an SSH key on your local computer.
+Good instructions can be found at [[https://docs.gitlab.com/ee/ssh/#generating-a-new-ssh-key-pair]].
+Your settings page should look like this:
+
+[[./ssh_gitlab.png]]
+
+This project was published with the following =.gitlab-ci.yml=:
+
+#+INCLUDE: ".gitlab-ci.yml" src conf

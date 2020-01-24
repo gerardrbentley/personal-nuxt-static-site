@@ -1,0 +1,31 @@
+#+title: FAIM Introduction
+#+author: Gerard Bentley
+#+date: <2020-01-22 Wed>
+
+this is intended as a rough checklist of software and concepts you'll become familiar with as you participate in a group environment.
+Computer Science classes have a lot of theoretical material to chug through, so the bare-bones computing skills and computer literacy sometimes don't get any spotlight.
+It's not immediately obvious how beneficial it can be to spend time on your coding workflow / process (from opening a file all the way to deploying a website), but there are good reasons for every 'best practice' type habit out there.
+
+The biggest benefits to me are:
+- Leaving a trail: Retaining the history of what you tried in both code and notes. Also being able to efficiently find your relevant notes!
+- Working with others: Sending code over email gets the job done in some cases, but ensuring your code doesn't negatively affect others' is nearly impossible
+- Getting less stuck: Having SOME intentional process, be it automatic or just a numbered list of steps, and writing it down helps you get back to where you were if you take a long mental break
+
+
+Hopefully some of these notes will answer your questions, link you to the answer, or at least inspire some useful search terms for [[http://google.com/][google]].
+
+Asking for help is never shameful or negative, these posts are a testament to how confusing coding can be.
+They're also a testament to how confusing it can be just to get set up to code.
+
+Without much further ado, here are the first steps towards contributing to the team
+- [[file:code_editors.org][Pick a Code editor]]
+- [[file:terminal.org][Terminal basics reference]]
+- [[file:gitlab_workspace.org][Get connected to the codebase]]
+
+And for the theoretical side of things, here are some [[file:research_papers.org][CS / FAIM-related research papers]]
+
+#+BEGIN_QUOTE
+P.S.
+I'm not trying to reinvent the wheel here, searching " ____ cheatsheet " with whatever software you're using is a great way to find the relevant keyboard shortcuts, functions, and commands.
+Specifically I really appreciate those for emacs0, conda, pandas, and numpy
+#+END_QUOTE
