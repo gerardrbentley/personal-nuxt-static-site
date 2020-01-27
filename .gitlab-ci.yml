@@ -1,8 +1,18 @@
-pages:
+image: silex/emacs
+
+.build: &build
   script:
-  - mkdir .public
+  - emacs --batch --no-init-file --load publish.el --funcall org-publish-all
   artifacts:
     paths:
     - public
+
+pages:
+  <<: *build
   only:
+  - master
+
+test:
+  <<: *build
+  except:
   - master
