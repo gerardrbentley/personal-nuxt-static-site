@@ -43,7 +43,7 @@
 
 (defvar site-attachments
   (regexp-opt '("jpg" "jpeg" "gif" "png" "svg"
-                "ico" "cur" "css" "js" "woff" "html" "pdf"))
+                "ico" "cur" "css" "js" "woff" "html" "pdf" "ttf"))
   "File types that are published as static files.")
 
 (setq org-publish-project-alist
