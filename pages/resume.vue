@@ -1,6 +1,5 @@
 <template>
   <div class="resumePage">
-    <navbar></navbar>
     <div class="bg-primary-50 h-auto w-screen pt-16 pb-8">
       
       <a href="/gbentley_resume.pdf">
@@ -11,22 +10,11 @@
         <pdf class="pdf" src="/gbentley_resume.pdf" :page="1"></pdf>
       </div>
     </div>
-    <myFooter></myFooter>
   </div>
 </template>
 
 <script>
-import navbar from '~/components/NavBar.vue'
-import myFooter from '~/components/Footer.vue'
-// import pdf from 'pdfvuer'
 
-export default {
-  components: {
-    navbar,
-    myFooter,
-
-  }
-}
 </script>
 
 <style>

@@ -1,23 +1,36 @@
 <template>
-<div class="homePage">
-  <navbar></navbar>
-    <div id="top" class="content relative">
-      <div
-        class="mainImage relative pb-9/12 sm:pb-6/12 xl:pb-5/12 shadow-2xl mb-4 "
-      >
-        <img
-          class="absolute h-full w-full object-cover z-20"
-          src="~assets/images/widerbg.png"
-          alt="Backgroundimage"
-        />
-      </div>
-      <div class="container w-11/12 m-auto sm:flex sm:content-center">
+<div class="homePage content relative">
+    <!-- <div class="flex justify-center content-center bg-gray-600">
+      
+    <a
+      href='/images/full_bg.jpg'
+    >
+      <ImageResponsive class="hidden xl:block"
+        :imageURL="`wide_bg.jpg`"
+        :width="'3200'"
+        :height="'100'"
+        :alt="`Backgroundimage`" />
+      <ImageResponsive class="hidden sm:block xl:hidden"
+        :imageURL="`left_bg.jpg`"
+        :width="'1600'"
+        :height="'500'"
+        :alt="`Backgroundimage`" />
+        
+        <ImageResponsive class="block sm:hidden"
+        :imageURL="`mobile_bg.jpg`"
+        :width="'800'"
+        :height="'1200'"
+        :alt="`Backgroundimage`" />
+    </a>
+    </div>
+    <div class="static w-full sm:w-7/12 sm:absolute sm:top-0 sm:right-0 sm:mr-8 sm:mt-24 flex">
         <h1
-          class="text-black font-mono z-30 text-2xl p-2 mx-auto sm:-mt-24 sm:mb-24 bg-primary-50 shadow-inner shadow-2xl border-primary border"
+          class="text-blackflex-auto font-mono z-30 text-2xl bg-primary-50 shadow-inner shadow-2xl border-primary border p-2"
         >
-          Software, AI Research, Daily Computing
+          Software, AI Research, Daily Computing...
         </h1>
-      </div>
+      </div> -->
+      <HeroImage/>
       <div class="container max-w-screen-lg m-auto">
         <div
           class="container mt-4 sm:-mt-12 border-2 border-primary rounded w-11/12 m-auto bg-primary-100"
@@ -39,6 +52,9 @@
             playground. It'll probably go through frequent updates as I search
             for work.
           </p>
+        </div>
+        <div class="container">
+          <PostsSection :posts="posts"> </PostsSection>
         </div>
         <div
           id="projects"
@@ -107,34 +123,69 @@
           </div>
         </div>
     </div>
-    <myFooter></myFooter>
-    </div>
-    </div>
+</div>
 </template>
 
 <script>
-import navbar from '~/components/NavBar.vue'
-import myFooter from '~/components/Footer.vue'
+// import navbar from '~/components/NavBar.vue'
+// import myFooter from '~/components/Footer.vue'
+import HeroImage from "~/components/Sections/HeroImage"
+import PostsSection from "~/components/Sections/PostsSection"
+import postlist from '~/contents/activeposts.js'
+
+const title = 'Gerard Bentley - Software Engineer, AI Researcher';
+const description = 'Full-Stack Developer based in Southern California.';
 
 export default {
-  components: {
-    navbar,
-    myFooter
-  }
+  async asyncData ({app}) {
+      console.log('test', postlist)
+      const posts = postlist;
+      console.log('test2', postlist)
+      
+      async function asyncImport (postName) {
+        const wholeMD = await import(`~/contents/posts/${postName}.md`)
+        return wholeMD.attributes
+      }
+
+      return Promise.all(posts.map(post => asyncImport(post)))
+      .then((res) => {
+        return {
+          posts: res
+        }
+      })
+    },
+
+    components: {
+      HeroImage,
+      PostsSection
+    },
+
+    transition: {
+      name: 'slide-fade'
+    },
+
+    head () {
+      return {
+        title: title,
+        meta: [
+          { name: "author", content: "Gerard Bentley" },
+          { name: "description", property: "og:description", content: description, hid: "description" },
+          { property: "og:title", content: title },
+          { property: "og:image", content: this.ogImage },
+          { name: "twitter:description", content: description },
+          { name: "twitter:image", content: this.ogImage }
+        ]
+      };
+    },
+
+    computed: {
+      ogImage: function () {
+        return require(`../assets/images/full_bg.jpg`);
+      }
+    }
 }
 </script>
 
 <style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 24px;
-  line-height: 1.6em;
-  margin: 0;
-  @apply bg-primary-50;
-}
-
-p {
-  padding: 15px 20px;
-}
 
 </style>
