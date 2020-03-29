@@ -3,24 +3,16 @@
 <template>
   <div class="datagrid">
     <div v-if="checkbox">
-      <input type="checkbox" id="checkbox" v-model="checked">
+      <input type="checkbox" id="checkbox" v-model="checked" />
       Loading
     </div>
-    <div
-      class="datagrid__container"
-    >
+    <div class="datagrid__container">
       <keep-alive>
         <table>
           <thead>
             <tr>
-              <th
-                v-for="column in columns"
-                :key="column.title"
-              >
-                <span
-                  class="column-title"
-                  v-text="column.title"
-                />
+              <th v-for="column in columns" :key="column.title">
+                <span class="column-title" v-text="column.title" />
               </th>
             </tr>
           </thead>
@@ -35,34 +27,17 @@
                 'horizontal-animation': horizontalAnimation
               }"
             >
-              <td
-                v-for="column in columns"
-                :key="column.title"
-              >
+              <td v-for="column in columns" :key="column.title">
                 <span>
-                  <div
-                    class="datagrid__loader"
-                    :style="`width: ${Math.floor(Math.random() * 51) + 50}%;`"
-                  />
+                  <div class="datagrid__loader" :style="`width: ${Math.floor(Math.random() * 51) + 50}%;`" />
                 </span>
               </td>
             </tr>
           </tbody>
-          <tbody
-            v-else
-            class="datagrid__shadow"
-          >
-            <tr
-              v-for="item in rows"
-              :key="item.id"
-            >
-              <td
-                v-for="rowCell in item"
-                :key="rowCell.keyValue"
-              >
-                <span
-                  v-text="rowCell"
-                />
+          <tbody v-else class="datagrid__shadow">
+            <tr v-for="item in rows" :key="item.id">
+              <td v-for="rowCell in item" :key="rowCell.keyValue">
+                <span v-text="rowCell" />
               </td>
             </tr>
           </tbody>
@@ -73,52 +48,56 @@
 </template>
 
 <script>
-
 const columns = [
   {
-    title: 'Name',
-    value: 'name'
+    title: "Name",
+    value: "name"
   },
   {
-    title: 'Country',
-    value: 'country'
+    title: "Country",
+    value: "country"
   },
   {
-    title: 'Song',
-    value: 'song'
+    title: "Song",
+    value: "song"
   }
-]
+];
 
 const rowsSample = [
   {
-    name: 'Florence + The Machine',
-    country: 'England',
-    song: 'What Kind of Man'
-  }, {
-    name: 'IZAL',
-    country: 'Spain',
-    song: 'La Increíble Historia del Hombre Que Podía Volar Pero No Sabía Cómo'
-  }, {
-    name: 'James Bay',
-    country: 'England',
-    song: 'Us'
-  }, {
-    name: 'Lana Del Rey',
-    country: 'United States',
-    song: 'Ride'
-  }, {
-    name: 'London Grammar',
-    country: 'England',
-    song: 'Wasting My Young Years'
-  }, {
-    name: 'Tom Odell',
-    country: 'England',
-    song: 'Another Love'
+    name: "Florence + The Machine",
+    country: "England",
+    song: "What Kind of Man"
+  },
+  {
+    name: "IZAL",
+    country: "Spain",
+    song: "La Increíble Historia del Hombre Que Podía Volar Pero No Sabía Cómo"
+  },
+  {
+    name: "James Bay",
+    country: "England",
+    song: "Us"
+  },
+  {
+    name: "Lana Del Rey",
+    country: "United States",
+    song: "Ride"
+  },
+  {
+    name: "London Grammar",
+    country: "England",
+    song: "Wasting My Young Years"
+  },
+  {
+    name: "Tom Odell",
+    country: "England",
+    song: "Another Love"
   }
-]
+];
 
 export default {
-  name: 'Datatable',
+  name: "Datatable",
 
   props: {
     isLoading: {
@@ -143,14 +122,14 @@ export default {
     }
   },
 
-  data () {
+  data() {
     return {
       rows: rowsSample,
       columns: columns,
-      checked: ''
-    }
+      checked: ""
+    };
   }
-}
+};
 </script>
 <style lang="scss">
 @keyframes aniUISkeleton {
@@ -184,9 +163,8 @@ export default {
   width: 100%;
   overflow-x: auto;
 
-
   &.elevate-cover__img {
-    background: #6C5CFF;
+    background: #6c5cff;
     align-items: center;
     justify-content: center;
 
@@ -201,7 +179,7 @@ export default {
       color: white;
       grid-template-columns: 100px 100px auto;
 
-      @media (min-width: $screen-sm){
+      &:sm {
         grid-template-columns: 200px 200px auto;
       }
     }
@@ -235,8 +213,8 @@ export default {
   }
 
   thead {
-    color: $grey-2;
-  
+    @apply text-gray-300;
+
     tr {
       display: grid;
       margin-bottom: 8px;
@@ -286,7 +264,6 @@ export default {
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
   }
 
   &__loader {
@@ -294,7 +271,7 @@ export default {
     border-radius: 8px;
     background: lighten(black, 85%);
     height: 12px;
-  
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -324,9 +301,9 @@ export default {
       opacity: 0;
 
       &:nth-child(2) {
-        animation-delay: .5s;
+        animation-delay: 0.5s;
       }
-  
+
       &:nth-child(3) {
         animation-delay: 1s;
       }
@@ -339,11 +316,7 @@ export default {
         animation-duration: 3.5s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
-        background: linear-gradient(
-          to right, lighten(black, 80%) 2%,
-          lighten(black, 40%) 18%,
-          lighten(black, 80%) 33%
-        );
+        background: linear-gradient(to right, lighten(black, 80%) 2%, lighten(black, 40%) 18%, lighten(black, 80%) 33%);
         background-size: 50%;
         width: 100%;
         height: 100%;
@@ -351,7 +324,6 @@ export default {
       }
     }
 
-    
     &.blend {
       &::before {
         mix-blend-mode: overlay;
@@ -368,4 +340,3 @@ export default {
   }
 }
 </style>
-

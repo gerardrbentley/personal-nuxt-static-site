@@ -15,6 +15,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.9.6",
     "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/svg": "^0.1.6",
     "nuxt": "^2.0.0",
     "pdfvuer": "^1.4.0",
     "responsive-loader": "^1.2.0",

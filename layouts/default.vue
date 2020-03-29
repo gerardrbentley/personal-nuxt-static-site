@@ -1,26 +1,39 @@
 <template>
   <div class="layout">
-    <Navbar/>
-    <nuxt class="nuxt-content"/>
-    <Footer/>
+    <nav-bar
+      v-bind:navOpen="openNav"
+      v-on:toggle-nav-bar="navIsOpen = !openNav"
+    />
+    <nuxt class="nuxt-content" v-bind:class="{ 'pt-12': openNav }" />
+    <Footer />
   </div>
 </template>
 
 <script>
-import Navbar from '~/components/Sections/NavBar.vue'
+import NavBar from "~/components/Sections/NavBar.vue";
 
-import Footer from '~/components/Sections/Footer.vue'
+import Footer from "~/components/Sections/Footer.vue";
 
-  export default {
-    components: {
-      Navbar,
-      Footer
+export default {
+  data: function() {
+    return {
+      navIsOpen: true
+    };
+  },
+  computed: {
+    openNav: function() {
+      return this.navIsOpen;
     }
+  },
+  components: {
+    NavBar,
+    Footer
   }
+};
 </script>
 
 <style>
-html{
+html {
   height: 100%;
 }
 
@@ -37,15 +50,25 @@ html{
 body {
   @apply bg-primary-50 h-full overflow-x-hidden;
   min-width: 320px;
-  transition: transform .5s ease-out;
+  transition: transform 0.5s ease-out;
 }
 
-.shape{
+@screen sm {
+  body {
+    @apply px-0;
+  }
+}
+
+.shape {
   @apply w-full max-h-full;
 }
 
-li, ul{
+li,
+ul {
   list-style-type: none;
 }
 
+p {
+  @apply pl-4;
+}
 </style>
