@@ -1,8 +1,5 @@
 const path = require("path");
 const builtAt = new Date().toISOString();
-import axios from "axios";
-import pkg from "./package";
-import posts from "./contents/activeposts.js";
 
 const { CI_PAGES_URL } = process.env;
 const baseUrl = CI_PAGES_URL && new URL(CI_PAGES_URL).pathname;
@@ -13,7 +10,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: `Gerard Bentley's Lost Crumbs`,
+    title: "Gerard Bentley's Lost Crumbs",
     meta: [
       { charset: "utf-8" },
       {
@@ -76,7 +73,7 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    // '@nuxtjs/eslint-module',
+    "@nuxtjs/eslint-module",
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     "@nuxtjs/tailwindcss"
   ],
@@ -85,14 +82,6 @@ export default {
    */
   modules: ["@nuxtjs/axios", "@nuxtjs/svg", "vue-scrollto/nuxt"],
 
-  // styleResources: {
-  //   scss: [
-  //     "@/assets/css/utilities/_variables.scss",
-  //     "@/assets/css/utilities/_helpers.scss",
-  //     "@/assets/css/base/_grid.scss",
-  //     "@/assets/css/base/_buttons.scss"
-  //   ]
-  // },
   /*
    ** Build configuration
    */
@@ -100,9 +89,9 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {
+    extend(config) {
       const rule = config.module.rules.find(
-        (r) => r.test.toString() === "/\\.(png|jpe?g|gif|svg|webp)$/i"
+        r => r.test.toString() === "/\\.(png|jpe?g|gif|svg|webp)$/i"
       );
       config.module.rules.splice(config.module.rules.indexOf(rule), 1);
 
