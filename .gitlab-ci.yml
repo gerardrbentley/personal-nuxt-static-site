@@ -1,11 +1,25 @@
-image: alpine:latest
+# Docker image used by Gitlab runner
+image: node
 
+# Runs before all jobs, in our case just the deploy job
+before_script:
+  - echo 'Running npm install'
+  - npm install
+
+  # Tells the runner to remember these files since they don't change much and are large
+cache:
+  paths:
+    - node_modules/
+
+# Job named pages runs the `npm run generate` command
+# Leaves the artifact files in the public/ folder for gitlab pages to deploy
 pages:
   stage: deploy
   script:
-  - echo 'Deploying public/ directory'
+    - echo 'Running generate'
+    - npm run generate
   artifacts:
     paths:
-    - public
+      - public
   only:
-  - master
+    - master
