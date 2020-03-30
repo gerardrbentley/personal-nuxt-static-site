@@ -39,3 +39,22 @@
     opacity: 0.75;
   }
 }
+
+.fadeInSlide {
+  margin: 0;
+  opacity: 0;
+  animation: fadeinmove 0.5s ease;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeinmove {
+  0% {
+    opacity: 0;
+    transform: translateX(+20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}

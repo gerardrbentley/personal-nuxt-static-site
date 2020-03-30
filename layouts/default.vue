@@ -1,9 +1,6 @@
 <template>
   <div class="layout">
-    <nav-bar
-      v-bind:navOpen="openNav"
-      v-on:toggle-nav-bar="navIsOpen = !openNav"
-    />
+    <nav-bar v-bind:navOpen="openNav" v-on:toggle-nav-bar="navIsOpen = !openNav" />
     <nuxt class="nuxt-content" v-bind:class="{ 'pt-12': openNav }" />
     <Footer />
   </div>
@@ -48,19 +45,23 @@ html {
 }
 
 body {
-  @apply bg-primary-50 h-full overflow-x-hidden;
+  @apply bg-primary-50 h-full overflow-x-hidden px-0;
   min-width: 320px;
   transition: transform 0.5s ease-out;
 }
 
-@screen sm {
-  body {
-    @apply px-0;
-  }
-}
-
 .shape {
   @apply w-full max-h-full;
+}
+
+.mobile-full {
+  @apply w-full mx-auto;
+}
+
+@screen sm {
+  .mobile-full {
+    @apply w-11/12;
+  }
 }
 
 li,
@@ -70,5 +71,17 @@ ul {
 
 p {
   @apply pl-6 py-4 leading-relaxed text-2xl;
+}
+
+h1 {
+  @apply text-5xl my-0;
+}
+
+h2 {
+  @apply text-4xl;
+}
+
+h3 {
+  @apply pl-6 py-4 text-3xl;
 }
 </style>

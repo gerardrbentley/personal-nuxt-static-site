@@ -1,6 +1,6 @@
 <template>
-  <li class="post">
-    <nuxt-link :to="'/posts/' + post.name">
+  <li class="post border border-dark shadow-lg hover:shadow-2xl bg-primary-100 p-4">
+    <NuxtLink :to="'/posts/' + post.name">
       <ImageResponsive
         :imageURL="`posts/${post.id}/_thumbnail.jpg`"
         :classes="'cardThumbnail'"
@@ -8,24 +8,20 @@
         :height="'509'"
         :alt="post.cardAlt"
       />
-      <h3 class="post__title">
-        {{ post.title }}
-      </h3>
-      <p class="post__description">
-        {{ post.description }}
-      </p>
-    </nuxt-link>
+      <h3 class="title">{{ post.title }}</h3>
+      <p class="description">{{ post.description }}</p>
+    </NuxtLink>
   </li>
 </template>
 
-<script lang="js">
+<script>
 export default {
   props: {
     post: {
       type: Object
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -34,34 +30,6 @@ export default {
   opacity: 0.7;
   &[lazy="loaded"] {
     opacity: 1;
-  }
-}
-.blog {
-  &:sm {
-    padding-bottom: 0;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &:hover {
-    .blog__title {
-      @apply text-primary;
-    }
-  }
-
-  &__title {
-    font-family: "Tiempos Headline", Arial, sans-serif;
-    @apply text-dark;
-    padding-top: 1rem;
-    font-size: 2.5rem;
-    transition: color 0.3s;
-  }
-
-  &__description {
-    margin: 0;
-    @apply text-gray-200;
   }
 }
 </style>

@@ -1,43 +1,39 @@
 <template>
   <div class="postSelected">
-    <div class="intro">
-      <div class="elevate-cover">
-        <div class="elevate-cover__textOffset">
-          <div class="elevate-cover__left">
-            <nuxt-link to="/">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 6 4"
-                aria-hidden="true"
-                style="width: 16px; transform: rotate(180deg);"
-              >
-                <polygon
-                  fill="currentColor"
-                  points="0 2.33 4.72 2.33 3.53 3.53 4 4 6 2 4 0 3.53 0.47 4.72 1.67 0 1.67 0 2.33"
-                />
-              </svg>
-              Return
-            </nuxt-link>
-          </div>
-          <div class="elevate-cover__left">
-            <span class="postSelected-year">{{ year }}</span>
-            <h1 class="elevate-cover__title">
-              {{ title }}
-            </h1>
-            <p class="elevate-cover__description">{{ description }}</p>
-          </div>
+    <div class="blog-header flex flex-col lg:flex-row">
+      <div class="elevate-cover__textOffset max-w-screen-sm w-full mx-auto">
+        <div class="blog-return left-lg p-2 pl-4 w-full">
+          <nuxt-link to="/posts" class="flex items-center justify-start text-primary-600 h-10">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 6 4"
+              aria-hidden="true"
+              style="width: 16px; height: 12px; transform: rotate(180deg);"
+            >
+              <polygon
+                fill="currentColor"
+                points="0 2.33 4.72 2.33 3.53 3.53 4 4 6 2 4 0 3.53 0.47 4.72 1.67 0 1.67 0 2.33"
+              />
+            </svg>
+            <span>Return</span>
+          </nuxt-link>
         </div>
-        <ImageResponsive
-          :imageURL="'posts/' + id + '/_main.jpg'"
-          v-if="!noMainImage"
-          width="100%"
-          class="elevate-cover__img"
-          :alt="'Post picture'"
-        />
-        <component v-else class="elevate-cover__img" :is="extraComponentLoader" />
+        <div class="blog-desc p-6 flex flex-col justify-start items-start lg:items-baseline">
+          <span class="postSelected-year pl-2">{{ year }}</span>
+          <h1 class="elevate-cover__title">{{ title }}</h1>
+          <p class="elevate-cover__description fadeInSlide">{{ description }}</p>
+        </div>
       </div>
+      <ImageResponsive
+        :imageURL="'posts/' + id + '/_main.jpg'"
+        v-if="!noMainImage"
+        width="100%"
+        class="elevate-cover__img"
+        :alt="'Post picture'"
+      />
+      <component v-else class="elevate-cover__img w-full" :is="extraComponentLoader" />
     </div>
-    <div class="container small">
+    <div class="mainBody">
       <DynamicMarkdown
         :render-func="renderFunc"
         :static-render-funcs="staticRenderFuncs"
@@ -145,27 +141,23 @@ export default {
     display: flex;
   }
 }
+
 .elevate-cover {
   display: flex;
   flex-direction: column;
   min-height: 459px;
-
-  &:lg {
-    flex-direction: row;
-  }
-
-  &__img,
-  &__textOffset {
-    width: 100%;
-  }
 
   &__left {
     max-width: 500px;
     width: 100%;
     padding: 2.4rem;
     margin-bottom: auto;
-
-    &:lg {
+  }
+  @screen lg {
+    .elevate-cover {
+      flex-direction: row;
+    }
+    .elevate-cover__left {
       margin-left: auto;
       padding: 2.4rem 4rem 2.4rem 2.4rem;
     }
