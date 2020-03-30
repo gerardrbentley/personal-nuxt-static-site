@@ -3,7 +3,7 @@
     <HeroImage />
     <div class="container max-w-screen-lg m-auto">
       <div
-        class="container mt-4 sm:-mt-12 border-2 border-primary rounded w-11/12 m-auto bg-primary-100"
+        class="container mt-6 border-2 border-primary rounded w-11/12 m-auto bg-primary-100"
       >
         <h1 class="font-mono font-bold text-3xl pt-4 pl-4">Welcome!</h1>
         <p>

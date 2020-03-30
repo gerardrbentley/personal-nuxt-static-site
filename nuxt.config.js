@@ -18,7 +18,8 @@ export default {
       { charset: "utf-8" },
       {
         name: "viewport",
-        content: "width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+        content:
+          "width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
       },
       { name: "theme-color", content: "#c1c1c1" },
       { name: "robots", content: "index, follow" },
@@ -34,8 +35,18 @@ export default {
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicons/favicon.ico" },
-      { rel: "icon", type: "image/png", href: "/favicons/favicon-16x16.png", sizes: "16x16" },
-      { rel: "icon", type: "image/png", href: "/favicons/favicon-32x32.png", sizes: "32x32" }
+      {
+        rel: "icon",
+        type: "image/png",
+        href: "/favicons/favicon-16x16.png",
+        sizes: "16x16"
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        href: "/favicons/favicon-32x32.png",
+        sizes: "32x32"
+      }
     ]
   },
   /*
@@ -55,7 +66,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~/plugins/lazyload", "~/plugins/globalComponents", { src: "~/plugins/pdfvuer.js", ssr: false }],
+  plugins: [
+    "~/plugins/lazyload",
+    "~/plugins/globalComponents",
+    { src: "~/plugins/vue-pdf.js", ssr: false }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -68,7 +83,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/axios", "@nuxtjs/svg"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/svg", "vue-scrollto/nuxt"],
 
   // styleResources: {
   //   scss: [
@@ -86,7 +101,9 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {
-      const rule = config.module.rules.find((r) => r.test.toString() === "/\\.(png|jpe?g|gif|svg|webp)$/i");
+      const rule = config.module.rules.find(
+        (r) => r.test.toString() === "/\\.(png|jpe?g|gif|svg|webp)$/i"
+      );
       config.module.rules.splice(config.module.rules.indexOf(rule), 1);
 
       config.module.rules.push(

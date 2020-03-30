@@ -69,6 +69,6 @@ ul {
 }
 
 p {
-  @apply pl-4;
+  @apply pl-6 py-4 leading-relaxed text-2xl;
 }
 </style>
