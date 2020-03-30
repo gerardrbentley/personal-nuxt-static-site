@@ -36,7 +36,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 Since this is a static site (and gitlab pages only supports static sites), all we need to do is create the html, css, and js files in a folder called `public/` and make sure that that's an `artifact` of the gitlab process. Learn more about [Gitlab Pages](https://docs.gitlab.com/ee/user/project/pages/#getting-started).
 
-```
+```yml
 # Docker image used by Gitlab runner
 image node
 
