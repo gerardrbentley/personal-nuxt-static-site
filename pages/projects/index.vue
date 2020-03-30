@@ -3,7 +3,7 @@
     <div class="w-full h-16 font-bold text-xl bg-dark text-white">
       COMING SOON
     </div>
-    <posts-section :posts="posts" />
+    <PostsSection :posts="posts" />
   </div>
 </template>
 
@@ -15,6 +15,9 @@ const title = "Gerard Bentley - Lost Crumbs";
 const description = "Full-Stack Development and Daily Computing Blog.";
 
 export default {
+  components: {
+    PostsSection
+  },
   async asyncData({ app }) {
     const posts = postlist;
 
@@ -23,19 +26,21 @@ export default {
       return wholeMD.attributes;
     }
 
-    return Promise.all(posts.map((post) => asyncImport(post))).then((res) => {
+    return Promise.all(posts.map(post => asyncImport(post))).then(res => {
       return {
         posts: res
       };
     });
   },
 
-  components: {
-    PostsSection
-  },
-
   transition: {
     name: "slide-fade"
+  },
+
+  computed: {
+    ogImage: function() {
+      return require("~/assets/images/full_bg.jpg");
+    }
   },
 
   head() {
@@ -55,12 +60,6 @@ export default {
         { name: "twitter:image", content: this.ogImage }
       ]
     };
-  },
-
-  computed: {
-    ogImage: function() {
-      return require("~/assets/images/full_bg.jpg");
-    }
   }
 };
 </script>

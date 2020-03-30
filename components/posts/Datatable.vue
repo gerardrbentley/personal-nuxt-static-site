@@ -3,7 +3,7 @@
 <template>
   <div class="datagrid">
     <div v-if="checkbox">
-      <input type="checkbox" id="checkbox" v-model="checked" />
+      <input id="checkbox" v-model="checked" type="checkbox" />
       Loading
     </div>
     <div class="datagrid__container">
@@ -22,14 +22,17 @@
               :key="index"
               class="datagrid__row"
               :class="{
-                'blend': blend,
+                blend: blend,
                 'vertical-animation': verticalAnimation,
                 'horizontal-animation': horizontalAnimation
               }"
             >
               <td v-for="column in columns" :key="column.title">
                 <span>
-                  <div class="datagrid__loader" :style="`width: ${Math.floor(Math.random() * 51) + 50}%;`" />
+                  <div
+                    class="datagrid__loader"
+                    :style="`width: ${Math.floor(Math.random() * 51) + 50}%;`"
+                  />
                 </span>
               </td>
             </tr>
@@ -316,7 +319,12 @@ export default {
         animation-duration: 3.5s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
-        background: linear-gradient(to right, lighten(black, 80%) 2%, lighten(black, 40%) 18%, lighten(black, 80%) 33%);
+        background: linear-gradient(
+          to right,
+          lighten(black, 80%) 2%,
+          lighten(black, 40%) 18%,
+          lighten(black, 80%) 33%
+        );
         background-size: 50%;
         width: 100%;
         height: 100%;

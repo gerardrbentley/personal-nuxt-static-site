@@ -28,13 +28,17 @@
           </div>
         </div>
         <ImageResponsive
-          :imageURL="'posts/' + id + '/_main.jpg'"
           v-if="!noMainImage"
+          :image-u-r-l="'posts/' + id + '/_main.jpg'"
           width="100%"
           class="elevate-cover__img"
           :alt="'Post picture'"
         />
-        <component v-else class="elevate-cover__img" :is="extraComponentLoader" />
+        <component
+          :is="extraComponentLoader"
+          v-else
+          class="elevate-cover__img"
+        />
       </div>
     </div>
     <div class="container small">
@@ -47,16 +51,15 @@
   </div>
 </template>
 
-<script lang="js">
-
-import DynamicMarkdown from "~/components/Markdown/DynamicMarkdown.vue"
-
+<script>
+import DynamicMarkdown from "~/components/Markdown/DynamicMarkdown.vue";
 
 export default {
+  components: { DynamicMarkdown },
 
-  async asyncData ({params, app}) {
-    const fileContent = await import(`~/contents/posts/${params.slug}.md`)
-    const attr = fileContent.attributes
+  async asyncData({ params, app }) {
+    const fileContent = await import(`~/contents/posts/${params.slug}.md`);
+    const attr = fileContent.attributes;
     return {
       name: params.slug,
       title: attr.title,
@@ -77,48 +80,49 @@ export default {
         main: attr.image && attr.image.main,
         og: attr.image && attr.image.og
       }
+    };
+  },
+
+  computed: {
+    ogImage() {
+      return `${process.env.baseUrl}/images/posts/${this.id}/_thumbnail.jpg`;
+    },
+    pageTitle() {
+      return this.title + " – Gerard Bentley";
+    },
+
+    extraComponentLoader() {
+      if (!this.extraComponent) {
+        return null;
+      }
+      return () => import(`~/components/posts/${this.extraComponent}.vue`);
     }
   },
 
-  components: { DynamicMarkdown},
-
-  head () {
+  head() {
     return {
       title: this.pageTitle,
       meta: [
         { name: "author", content: "Gerard Bentley" },
-        { name: "description", property: "og:description", content: this.description, hid: "description" },
+        {
+          name: "description",
+          property: "og:description",
+          content: this.description,
+          hid: "description"
+        },
         { property: "og:title", content: this.pageTitle },
         { property: "og:image", content: this.ogImage },
         { name: "twitter:description", content: this.description },
         { name: "twitter:image", content: this.ogImage }
       ],
-      link: [
-        this.hreflang
-      ]
+      link: [this.hreflang]
     };
   },
 
   transition: {
-    name: 'slide-fade'
-  },
-
-  computed: {
-    ogImage () {
-      return `${process.env.baseUrl}/images/posts/${this.id}/_thumbnail.jpg`;
-    },
-    pageTitle () {
-      return this.title + ' – Gerard Bentley';
-    },
-
-    extraComponentLoader () {
-      if (!this.extraComponent) {
-        return null
-      }
-      return () => import(`~/components/posts/${this.extraComponent}.vue`)
-    }
+    name: "slide-fade"
   }
-}
+};
 </script>
 
 <style lang="scss">

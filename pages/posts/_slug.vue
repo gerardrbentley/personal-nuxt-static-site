@@ -3,7 +3,10 @@
     <div class="blog-header flex flex-col lg:flex-row">
       <div class="elevate-cover__textOffset max-w-screen-sm w-full mx-auto">
         <div class="blog-return left-lg p-2 pl-4 w-full">
-          <nuxt-link to="/posts" class="flex items-center justify-start text-primary-600 h-10">
+          <nuxt-link
+            to="/posts"
+            class="flex items-center justify-start text-primary-600 h-10"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 6 4"
@@ -18,20 +21,28 @@
             <span>Return</span>
           </nuxt-link>
         </div>
-        <div class="blog-desc p-6 flex flex-col justify-start items-start lg:items-baseline">
+        <div
+          class="blog-desc p-6 flex flex-col justify-start items-start lg:items-baseline"
+        >
           <span class="postSelected-year pl-2">{{ year }}</span>
           <h1 class="elevate-cover__title">{{ title }}</h1>
-          <p class="elevate-cover__description fadeInSlide">{{ description }}</p>
+          <p class="elevate-cover__description fadeInSlide">
+            {{ description }}
+          </p>
         </div>
       </div>
       <ImageResponsive
-        :imageURL="'posts/' + id + '/_main.jpg'"
         v-if="!noMainImage"
+        :image-u-r-l="'posts/' + id + '/_main.jpg'"
         width="100%"
         class="elevate-cover__img"
         :alt="'Post picture'"
       />
-      <component v-else class="elevate-cover__img w-full" :is="extraComponentLoader" />
+      <component
+        :is="extraComponentLoader"
+        v-else
+        class="elevate-cover__img w-full"
+      />
     </div>
     <div class="mainBody">
       <DynamicMarkdown
@@ -45,14 +56,16 @@
 
 <script lang="js">
 
-import DynamicMarkdown from "~/components/Markdown/DynamicMarkdown.vue"
+import DynamicMarkdown from "~/components/Markdown/DynamicMarkdown.vue";
 
 
 export default {
 
+  components: { DynamicMarkdown},
+
   async asyncData ({params, app}) {
-    const fileContent = await import(`~/contents/posts/${params.slug}.md`)
-    const attr = fileContent.attributes
+    const fileContent = await import(`~/contents/posts/${params.slug}.md`);
+    const attr = fileContent.attributes;
     return {
       name: params.slug,
       title: attr.title,
@@ -73,10 +86,24 @@ export default {
         main: attr.image && attr.image.main,
         og: attr.image && attr.image.og
       }
-    }
+    };
   },
 
-  components: { DynamicMarkdown},
+  computed: {
+    ogImage () {
+      return `${process.env.baseUrl}/images/posts/${this.id}/_thumbnail.jpg`;
+    },
+    pageTitle () {
+      return this.title + " – Gerard Bentley";
+    },
+
+    extraComponentLoader () {
+      if (!this.extraComponent) {
+        return null;
+      }
+      return () => import(`~/components/posts/${this.extraComponent}.vue`);
+    }
+  },
 
   head () {
     return {
@@ -96,25 +123,9 @@ export default {
   },
 
   transition: {
-    name: 'slide-fade'
-  },
-
-  computed: {
-    ogImage () {
-      return `${process.env.baseUrl}/images/posts/${this.id}/_thumbnail.jpg`;
-    },
-    pageTitle () {
-      return this.title + ' – Gerard Bentley';
-    },
-
-    extraComponentLoader () {
-      if (!this.extraComponent) {
-        return null
-      }
-      return () => import(`~/components/posts/${this.extraComponent}.vue`)
-    }
+    name: "slide-fade"
   }
-}
+};
 </script>
 
 <style lang="scss">

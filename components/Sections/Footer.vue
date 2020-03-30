@@ -23,12 +23,12 @@
         >
       </div>
       <a
-        href="#"
         v-scroll-to="{
           el: '#__layout',
           duration: 800,
           offset: -200
         }"
+        href="#"
         class="transform smooth-3 fadeIn75 z-50 rounded-full bg-white text-gray-700 hover:bg-gray-400 hover:shadow-outline hover:text-gray-900 mr-4 mb-1 flex-shrink-0"
       >
         <Arrow class="transform smooth-5 fill-current -m-1" />

@@ -2,15 +2,15 @@
   <div class="myNav">
     <button
       class="transform smooth-3 fadeIn75 z-50 fixed rounded-full bg-white text-gray-700 hover:bg-gray-400 hover:shadow-outline hover:text-gray-900 ml-4 mt-1"
-      v-on:click="$emit('toggle-nav-bar')"
+      @click="$emit('toggle-nav-bar')"
     >
       <DoubleArrow
-        v-bind:class="{ 'rotate-90': !isNavOpen, '-rotate-90': isNavOpen }"
+        :class="{ 'rotate-90': !isNavOpen, '-rotate-90': isNavOpen }"
         class="transform smooth-5 fill-current -m-1"
       />
     </button>
     <nav
-      v-bind:class="{ hidden: !isNavOpen }"
+      :class="{ hidden: !isNavOpen }"
       class="navBar z-40 fixed flex justify-between flex-wrap lg:flex-no-wrap w-full bg-dark h-12 shadow-lg lg:rounded-b pl-4"
     >
       <div class="navLogo flex items-center flex-shrink-0 mr-6 ml-16">
@@ -27,23 +27,23 @@
       </div>
 
       <button
-        class="transform smooth-3 fadeIn75 z-50 block lg:hidden rounded-full text-white hover:bg-gray-400 hover:shadow-outline hover:text-gray-100"
-        v-on:click="toggleNavLinks"
         v-if="!navLinksOpen"
+        class="transform smooth-3 fadeIn75 z-50 block lg:hidden rounded-full text-white hover:bg-gray-400 hover:shadow-outline hover:text-gray-100"
+        @click="toggleNavLinks"
       >
         <TripleDots class="transform smooth-3 fill-current" />
       </button>
       <button
-        class="transform smooth-3 fadeIn75 z-50 block lg:hidden rounded-full text-white hover:bg-gray-400 hover:shadow-outline hover:text-gray-100"
-        v-on:click="toggleNavLinks"
         v-if="navLinksOpen"
+        class="transform smooth-3 fadeIn75 z-50 block lg:hidden rounded-full text-white hover:bg-gray-400 hover:shadow-outline hover:text-gray-100"
+        @click="toggleNavLinks"
       >
         <CloseX class="transform smooth-3 fill-current" />
       </button>
 
       <div
         class="navLinks w-full block flex-grow lg:flex lg:items-center lg:w-auto lg:justify-end"
-        v-bind:class="{ hidden: !navLinksOpen }"
+        :class="{ hidden: !navLinksOpen }"
       >
         <NuxtLink
           to="/posts"
@@ -108,7 +108,7 @@ export default {
     }
   },
   methods: {
-    toggleNavLinks: function(event) {
+    toggleNavLinks: function() {
       this.navLinksOpen = !this.navLinksOpen;
     }
   }

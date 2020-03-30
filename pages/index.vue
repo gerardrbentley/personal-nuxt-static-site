@@ -2,7 +2,9 @@
   <div class="homePage content relative">
     <HeroImage />
     <div class="container max-w-screen-lg m-auto">
-      <div class="container mt-6 border-2 border-primary rounded mobile-full bg-primary-100">
+      <div
+        class="container mt-6 border-2 border-primary rounded mobile-full bg-primary-100"
+      >
         <h1 class="font-mono font-bold text-3xl pt-4 pl-4">Welcome!</h1>
         <p>
           Here you can find projects I'm working on, tools that I'm using, and
@@ -45,7 +47,9 @@
       <!--Main Col-->
       <div id="profile" class="w-full rounded-lg shadow-2xl bg-primary-100">
         <div class="p-4 text-center">
-          <div class="block mx-auto -mt-16 h-48 w-48 lg:w-56 lg:h-56 bg-cover bg-center">
+          <div
+            class="block mx-auto -mt-16 h-48 w-48 lg:w-56 lg:h-56 bg-cover bg-center"
+          >
             <div
               class="headshotImage relative border-primary h-48 w-48 lg:w-56 lg:h-56 border-2 rounded-lg shadow-xl pb-48"
             >
@@ -59,7 +63,9 @@
 
           <h1 class="text-3xl font-bold pt-4">About Me</h1>
           <h2 class="text-2xl font-bold pt-4">Gerard R. Bentley</h2>
-          <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-light opacity-50"></div>
+          <div
+            class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-light opacity-50"
+          ></div>
           <p class="pt-4 text-base flex items-center justify-center">
             <svg
               class="h-4 flex-shrink-0 fill-current text-light pr-4"
@@ -85,7 +91,9 @@
             </svg>
             Claremont, CA, USA (Originally Warren, CT)
           </p>
-          <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-light opacity-50"></div>
+          <div
+            class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-light opacity-50"
+          ></div>
           <p class="m-auto w-11/12 text-black">
             I'm a software developer interested in computer vision, web-based
             apps, ethical / explainable AI, and bringing coding to others.
@@ -168,6 +176,10 @@ const title = "Gerard Bentley - Software Engineer, AI Researcher";
 const description = "Full-Stack Developer based in Southern California.";
 
 export default {
+  components: {
+    HeroImage,
+    PostsSection
+  },
   async asyncData({ app }) {
     const posts = postlist;
 
@@ -183,13 +195,14 @@ export default {
     });
   },
 
-  components: {
-    HeroImage,
-    PostsSection
-  },
-
   transition: {
     name: "slide-fade"
+  },
+
+  computed: {
+    ogImage: function() {
+      return require("~/assets/images/full_bg.jpg");
+    }
   },
 
   head() {
@@ -209,12 +222,6 @@ export default {
         { name: "twitter:image", content: this.ogImage }
       ]
     };
-  },
-
-  computed: {
-    ogImage: function() {
-      return require(`~/assets/images/full_bg.jpg`);
-    }
   }
 };
 </script>

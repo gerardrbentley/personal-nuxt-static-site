@@ -1,8 +1,10 @@
 <template>
-  <li class="post border border-dark shadow-lg hover:shadow-2xl bg-primary-100 p-4">
+  <li
+    class="post border border-dark shadow-lg hover:shadow-2xl bg-primary-100 p-4"
+  >
     <NuxtLink :to="'/posts/' + post.name">
       <ImageResponsive
-        :imageURL="`posts/${post.id}/_thumbnail.jpg`"
+        :image-u-r-l="`posts/${post.id}/_thumbnail.jpg`"
         :classes="'cardThumbnail'"
         :width="'952'"
         :height="'509'"
@@ -18,7 +20,10 @@
 export default {
   props: {
     post: {
-      type: Object
+      type: Object,
+      default: () => {
+        "";
+      }
     }
   }
 };

@@ -6,7 +6,7 @@
       </div>
     </div>
     <ul class="posts mobile-full grid grid-cols-1 lg:grid-cols-2 gap-4">
-      <post-card v-for="post in posts" :key="post.name" :post="post" />
+      <PostCard v-for="post in posts" :key="post.name" :post="post" />
     </ul>
   </div>
 </template>
@@ -17,11 +17,10 @@ export default {
   components: { PostCard },
   props: {
     posts: {
-      type: Array
+      type: Array,
+      default: () => []
     }
   }
 };
 </script>
-<style>
-</style>
-
+<style></style>

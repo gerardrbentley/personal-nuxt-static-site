@@ -1,6 +1,6 @@
 <template>
   <div class="blog-page content relative">
-    <posts-section :posts="posts" />
+    <PostsSection :posts="posts" />
   </div>
 </template>
 
@@ -12,6 +12,9 @@ const title = "Gerard Bentley - Lost Crumbs";
 const description = "Full-Stack Development and Daily Computing Blog.";
 
 export default {
+  components: {
+    PostsSection
+  },
   async asyncData({ app }) {
     const posts = postlist;
 
@@ -20,19 +23,21 @@ export default {
       return wholeMD.attributes;
     }
 
-    return Promise.all(posts.map((post) => asyncImport(post))).then((res) => {
+    return Promise.all(posts.map(post => asyncImport(post))).then(res => {
       return {
         posts: res
       };
     });
   },
 
-  components: {
-    PostsSection
-  },
-
   transition: {
     name: "slide-fade"
+  },
+
+  computed: {
+    ogImage: function() {
+      return require("~/assets/images/full_bg.jpg");
+    }
   },
 
   head() {
@@ -40,19 +45,18 @@ export default {
       title: title,
       meta: [
         { name: "author", content: "Gerard Bentley" },
-        { name: "description", property: "og:description", content: description, hid: "description" },
+        {
+          name: "description",
+          property: "og:description",
+          content: description,
+          hid: "description"
+        },
         { property: "og:title", content: title },
         { property: "og:image", content: this.ogImage },
         { name: "twitter:description", content: description },
         { name: "twitter:image", content: this.ogImage }
       ]
     };
-  },
-
-  computed: {
-    ogImage: function() {
-      return require("~/assets/images/full_bg.jpg");
-    }
   }
 };
 </script>

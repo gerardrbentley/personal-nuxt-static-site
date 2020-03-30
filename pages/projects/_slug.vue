@@ -28,13 +28,17 @@
           </div>
         </div>
         <ImageResponsive
-          :imageURL="'posts/' + id + '/_main.jpg'"
           v-if="!noMainImage"
+          :image-u-r-l="'posts/' + id + '/_main.jpg'"
           width="100%"
           class="elevate-cover__img"
           :alt="'Post picture'"
         />
-        <component v-else class="elevate-cover__img" :is="extraComponentLoader" />
+        <component
+          :is="extraComponentLoader"
+          v-else
+          class="elevate-cover__img"
+        />
       </div>
     </div>
     <div class="container small">
@@ -49,14 +53,16 @@
 
 <script lang="js">
 
-import DynamicMarkdown from "~/components/Markdown/DynamicMarkdown.vue"
+import DynamicMarkdown from "~/components/Markdown/DynamicMarkdown.vue";
 
 
 export default {
 
+  components: { DynamicMarkdown},
+
   async asyncData ({params, app}) {
-    const fileContent = await import(`~/contents/posts/${params.slug}.md`)
-    const attr = fileContent.attributes
+    const fileContent = await import(`~/contents/posts/${params.slug}.md`);
+    const attr = fileContent.attributes;
     return {
       name: params.slug,
       title: attr.title,
@@ -77,10 +83,24 @@ export default {
         main: attr.image && attr.image.main,
         og: attr.image && attr.image.og
       }
-    }
+    };
   },
 
-  components: { DynamicMarkdown},
+  computed: {
+    ogImage () {
+      return `${process.env.baseUrl}/images/posts/${this.id}/_thumbnail.jpg`;
+    },
+    pageTitle () {
+      return this.title + " – Gerard Bentley";
+    },
+
+    extraComponentLoader () {
+      if (!this.extraComponent) {
+        return null;
+      }
+      return () => import(`~/components/posts/${this.extraComponent}.vue`);
+    }
+  },
 
   head () {
     return {
@@ -100,25 +120,9 @@ export default {
   },
 
   transition: {
-    name: 'slide-fade'
-  },
-
-  computed: {
-    ogImage () {
-      return `${process.env.baseUrl}/images/posts/${this.id}/_thumbnail.jpg`;
-    },
-    pageTitle () {
-      return this.title + ' – Gerard Bentley';
-    },
-
-    extraComponentLoader () {
-      if (!this.extraComponent) {
-        return null
-      }
-      return () => import(`~/components/posts/${this.extraComponent}.vue`)
-    }
+    name: "slide-fade"
   }
-}
+};
 </script>
 
 <style lang="scss">

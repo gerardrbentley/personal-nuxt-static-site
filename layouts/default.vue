@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
-    <nav-bar v-bind:navOpen="openNav" v-on:toggle-nav-bar="navIsOpen = !openNav" />
-    <nuxt class="nuxt-content" v-bind:class="{ 'pt-12': openNav }" />
+    <NavBar :nav-open="openNav" @toggle-nav-bar="navIsOpen = !openNav" />
+    <nuxt class="nuxt-content" :class="{ 'pt-12': openNav }" />
     <Footer />
   </div>
 </template>
@@ -12,6 +12,10 @@ import NavBar from "~/components/Sections/NavBar.vue";
 import Footer from "~/components/Sections/Footer.vue";
 
 export default {
+  components: {
+    NavBar,
+    Footer
+  },
   data: function() {
     return {
       navIsOpen: true
@@ -21,10 +25,6 @@ export default {
     openNav: function() {
       return this.navIsOpen;
     }
-  },
-  components: {
-    NavBar,
-    Footer
   }
 };
 </script>
