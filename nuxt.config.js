@@ -4,6 +4,28 @@ const builtAt = new Date().toISOString();
 const { CI_PAGES_URL } = process.env;
 const baseUrl = CI_PAGES_URL && new URL(CI_PAGES_URL).pathname;
 
+import Mode from "frontmatter-markdown-loader/mode";
+import MarkdownIt from "markdown-it";
+import mip from "markdown-it-prism";
+import fs from "fs";
+
+const md = new MarkdownIt({
+  html: true,
+  typographer: true
+});
+md.use(mip);
+
+// function getPaths(lang, type) {
+//   let initial = lang;
+//   if (lang === "en") {
+//     initial = "";
+//   }
+//   return fs
+//     .readdirSync(path.resolve(__dirname, "contents", `${type}`))
+//     .filter(filename => path.extname(filename) === ".md")
+//     .map(filename => `${initial}/${type}/${path.parse(filename).name}`);
+// }
+
 export default {
   mode: "universal",
   /*
@@ -101,8 +123,12 @@ export default {
           loader: "frontmatter-markdown-loader",
           include: path.resolve(__dirname, "contents"),
           options: {
+            mode: [Mode.VUE_RENDER_FUNCTIONS, Mode.VUE_COMPONENT],
             vue: {
               root: "dynamicMarkdown"
+            },
+            markdown(body) {
+              return md.render(body);
             }
           }
         },
