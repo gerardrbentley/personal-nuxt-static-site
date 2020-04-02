@@ -145,8 +145,8 @@
 <script>
 import HeroImage from "~/components/Sections/HeroImage";
 import PostsSection from "~/components/Sections/PostsSection";
-import postlist from "~/contents/activeposts.js";
 import TippySVG from "~/components/Sections/TippySVG";
+import postlist from "~/contents/activeposts.js";
 
 const title = "Gerard Bentley - Software Engineer, AI Researcher";
 const description = "Full-Stack Developer based in Southern California.";
