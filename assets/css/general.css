@@ -11,11 +11,22 @@
 }
 
 .btn-dark {
-  @apply text-white bg-dark py-2 px-3 font-semibold border-darker;
+  @apply transform smooth-5 text-white bg-dark py-2 px-3 font-semibold border-darker;
+}
+
+.link {
+  @apply underline font-mono text-white transform smooth-5;
+}
+
+svg {
+  @apply transform smooth-5 fill-current;
 }
 
 @variants hover {
   .emphasis-primary {
-    @apply text-white bg-primary-800 shadow-2xl;
+    @apply text-light bg-primary-800 shadow-xl;
+  }
+  .animated-link {
+    @apply text-light font-bold;
   }
 }

@@ -7,7 +7,6 @@ const baseUrl = CI_PAGES_URL && new URL(CI_PAGES_URL).pathname;
 import Mode from "frontmatter-markdown-loader/mode";
 import MarkdownIt from "markdown-it";
 import mip from "markdown-it-prism";
-import fs from "fs";
 
 const md = new MarkdownIt({
   html: true,
@@ -102,7 +101,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/axios", "@nuxtjs/svg", "vue-scrollto/nuxt"],
+  modules: ["@nuxtjs/axios", "@chrisbielak/svg-module", "vue-scrollto/nuxt"],
 
   /*
    ** Build configuration

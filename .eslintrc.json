@@ -49,7 +49,7 @@
     "no-unused-vars": [
       "error",
       {
-        "argsIgnorePattern": "app"
+        "argsIgnorePattern": "^[aA]pp"
       }
     ]
   }

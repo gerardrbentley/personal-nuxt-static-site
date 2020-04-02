@@ -10,15 +10,40 @@
           <a
             target="_blank"
             href="https://twitter.com/GarsBar35Plus"
-            class="text-white"
+            class="link hover:animated-link"
             ><span>Gerard Bentley</span></a
           >
-          using Vue + Nuxt JS, Tailwind CSS, and Gitlab Pages.
+          using
+          <a
+            target="_blank"
+            href="https://twitter.com/GarsBar35Plus"
+            class="link hover:animated-link"
+            ><span>Vue</span></a
+          >
+          +
+          <a
+            target="_blank"
+            href="https://twitter.com/GarsBar35Plus"
+            class="link hover:animated-link"
+            ><span>Nuxt JS</span></a
+          >,
+          <a
+            target="_blank"
+            href="https://twitter.com/GarsBar35Plus"
+            class="link hover:animated-link"
+            ><span>Tailwind CSS</span></a
+          >, and
+          <a
+            target="_blank"
+            href="https://twitter.com/GarsBar35Plus"
+            class="link hover:animated-link"
+            ><span>Gitlab Pages</span></a
+          >.
           <a
             target="_blank"
             href="https://gitlab.com/gerardrbentley/gerardrbentley.gitlab.io"
-            class="text-mono text-white"
-            ><span>Source Code</span></a
+            class="link hover:animated-link"
+            ><span>View Source Code</span></a
           ></span
         >
       </div>
