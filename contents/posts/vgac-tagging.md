@@ -1,23 +1,29 @@
 ---
-name: 'vgac-tagging-tools'
-title: Custom Tagging Tools for VGAC 
+name: 'vgac-tagging'
+title: Custom Data Tagging with Python OpenCV
 year: 2 April 2020
 color: '#710710'
 id: 'vgac-tagging'
 description: |
-  Overview of different iterations of tools for tagging images for VGAC.
-tags: 'projects', 'vgac', 'opencv', 'python', 'web-dev'
+  Overview of different iterations of tools I made for tagging images in the VGAC.
+tags: 
+  - 'projects' 
+  - 'vgac'
+  - 'opencv'
+  - 'python'
+  - 'web-dev'
 ---
 
 ## Original
-The first tool used for tagging images for the Videogame Affordances Corpus was based on the python gui package [TKinter](https://www.datacamp.com/community/tutorials/gui-tkinter-python), with a simple button and keyboard interface.
+The screen capture above is the first tool used for tagging images for the Videogame Affordances Corpus (VGAC).
+It was based on the python gui package [TKinter](https://www.datacamp.com/community/tutorials/gui-tkinter-python), with a simple button and keyboard interface (`q-w-e`, `a-s-d`, `z-x-c`).
 It works by splitting a given image into a grid, labelling any grid tiles that are the same or very similar to 'known' tiles (i.e. tagged before).
 Then the user can toggle each affordance for the unkown tiles, effectively labelling the whole image.
 It also featured rudimentary sprite matching to find game characters in the images.
 This turned out to be a difficult template matching task to generalize, so I tried out matching in several color and edge detection spaces (rgb, gray, sobel and laplace transformed images).
 'Research-grade' Code can be found at [this gitlab repo](https://gitlab.com/gerardrbentley/original-vgac-tagging).
 
-<image-responsive imageURL="posts/vgac-tagging/tagging_interface.png" width="100%" alt="Tkinter grid tagging interface"/>
+<!-- <image-responsive imageURL="posts/vgac-tagging/tagging_interface.png" width="100%" alt="Tkinter grid tagging interface"/> -->
 
 ## First Web Version
 Eventually that project ran into problems with Mac OS compatibility, so the tagging tool turned to [flask](https://flask.palletsprojects.com/en/1.1.x/) a python web microframework used by many developers who like using python and want to deploy code to the web.

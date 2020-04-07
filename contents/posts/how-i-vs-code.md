@@ -6,16 +6,19 @@ color: '#710710'
 id: 'how-i-vs-code'
 description: |
   Set up your code editor to help you think less and write more.
-tags: 'beginner', 'guide', 'general-coding'
+tags: 
+- 'beginner' 
+- 'guide' 
+- 'general-coding'
 ---
 
 ## 0.1. Why use a Code Editor?
 
 For the same reason some teachers allow cheatsheets and don't take off for formatting: **So you can focus on the relevant task**.
 It's not efficient to constantly think about the syntax of your program, and it's especially not efficient to constantly hunt for bugs and errors.
-A few now common features in code editors that I now take for granted are autosaving, autocompletion & suggestion, syntax highlighting and syntax correction.
+A few features in text editors that I now take for granted are autosaving, autocompletion & suggestion, syntax highlighting and syntax correction.
 
-In this post I'll focus on how I set up my VS Code to decrease my coding cognitive load when working with Python, Javascript, and Markdown.
+In this post I'll focus on how I set up my VS Code to help decrease my cognitive load when coding in Python & Javascript (And some bonus tips for blogging / READMEs with Markdown).
 I'll go over relevant extensions for each, and try to discuss different settings options you may prefer.
 
 **NOTE:** I personally find VS Code more friendly for new users than older text editors like Emacs and Vi, but those are still incredibly powerful and customizable.

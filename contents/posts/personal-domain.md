@@ -6,7 +6,11 @@ color: '#710710'
 id: 'personal-domain'
 description: |
   Using Google Domains, Gitlab Pages, and some basic HTML and CSS to make a fun public facing webpage.
-tags: 'beginner', 'web-dev', 'deployment', 'guide'
+tags: 
+- 'beginner'
+- 'web-dev'
+- 'deployment' 
+- 'guide'
 ---
 
 ## Why make your own website?

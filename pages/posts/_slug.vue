@@ -231,6 +231,14 @@ export default {
     list-style-type: initial;
   }
 
+  a {
+    @apply underline font-mono text-light transform duration-500 ease-out;
+  }
+
+  a:hover {
+    @apply text-primary font-bold;
+  }
+
   pre {
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
     padding: 2.4rem;

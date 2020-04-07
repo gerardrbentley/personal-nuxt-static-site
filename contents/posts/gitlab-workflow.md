@@ -1,6 +1,18 @@
-#+title: Gitlab Workflow
-#+author: Gerard Bentley
-#+date: <2020-01-24 Fri>
+---
+name: 'gitlab-workflow'
+title: Share a website to the world in less than a day (Free for Students!)
+year: 28 March 2020
+color: '#710710'
+id: 'gitlab-workflow'
+description: |
+  Using Google Domains, Gitlab Pages, and some basic HTML and CSS to make a fun public facing webpage.
+tags: 
+- 'beginner' 
+- 'web-dev'
+- 'deployment'
+- 'guide'
+---
+
 
 One goal of using Gitlab is to not clobber one another's work, even when working on different features and recombining new code.
 
