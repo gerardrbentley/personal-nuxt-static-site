@@ -32,16 +32,18 @@ For reference, your Desktop folder is located at ~/Desktop, your Documents at ~/
 
 Now for the 3 Basic commands that will help you navigate around:
 
-     pwd
-
+``` bash
+pwd
+```
 `Print Working Directory`: Tells you where in the filesystem the command line is currently pointed. On a fresh Terminal window it should show /Users/YOUR-USERNAME/
-
-     ls
+``` bash
+ls
+```
 
 `List`: Lists out all the files and directories in the current directory you're pointed at. Also helps you know where in the filesystem you are
-
-     cd
-
+``` bash
+cd
+```
 `Change Directory`: Actually moves where the command line is pointed to a different directory / folder.
 
 The common uses of `cd` and `ls`:
@@ -51,20 +53,21 @@ The common uses of `cd` and `ls`:
 On my personal computer I try to keep all my coding projects under a folder called `research` (in their own individual folders) which is in my Home folder (~/research or /Users/Gerard/research)
 
 So to get to my project I open terminal and enter
-
-     cd research/my-project-folder
-
+``` bash
+cd research/my-project-folder
+```
 **NOTE**: This works because the Terminal is already pointed at my ~/ directory and `research` is in that directory. You can use `ls` to see if `research` is present
 
 If you don't remember the project-folder name you can do the following
-
-     cd research
-     ls
+``` bash
+cd research
+ls
+```
 
 This will show you all the files and folders in `research`, then you can simply
-
-     cd project-folder-i-remember-now
-
+``` bash
+cd project-folder-i-remember-now
+```
 
 ### Go back one or more directories
 As `~/` is equivalent to `/Users/YOUR-USERNAME/` on mac, `./` is equivalent to `pwd`/
@@ -72,23 +75,23 @@ As `~/` is equivalent to `/Users/YOUR-USERNAME/` on mac, `./` is equivalent to `
 By this I mean that `.` represents the current working directory, where the terminal command line is pointed.
 
 So the same command from before works the same like this (from a fresh Terminal located at `~/`)
-
-     cd ./research/my-project-folder
-
+``` bash
+cd ./research/my-project-folder
+```
 After executing that command, `pwd` will tell you the Terminal is at `/Users/Gerard/research/my-project-folder`, which we want because we just `cd`d into that directory
 
 If we wanted to switch projects (to a different folder in `research`), we need to go 'up' a folder. To do this we use `..` to represent the folder 'above' the current folder
-
-     cd ..
-
+``` bash
+cd ..
+```
 This brings us back to `research`, so `pwd` will say `/Users/Gerard/research/`
 
 Now we can cd into a different folder
-
-     cd my-other-project-folder
-
+``` bash
+cd my-other-project-folder
+```
 If we wanted to switch to a different project directly in one command we can use
-
-     cd ../third-folder
-
+``` bash
+cd ../third-folder
+```
 I think of this as 'going to third-folder, which is in the folder above the current one'

@@ -34,4 +34,5 @@ Custom domains are limited to one owner, so don't be disappointed if someone els
 It's open source with a free tier that is plenty decent for my use and because it supports the full lifecycle of your app in one place.
 [Github](https://github.com) is also super popular, probably still more popular than Gitlab, and [Github Pages](https://pages.github.com/) is their hosting service, but I won't discuss that further.
 
-It also has a decent web editor if you haven't set one up on your machine ()
+For more on gitlab and some pointers on managing a project that you update over time or work on with others, see <nuxt-link to="gitlab-workflow">my post</nuxt-link> on Gitlab Workflow.
+It also has a decent web editor if you haven't set one up on your machine, see <nuxt-link to="how-i-vs-code">my post</nuxt-link> on how I use VS Code if you want to improve the way you type.
