@@ -10,6 +10,11 @@
       <h1 class="font-mono font-bold text-3xl pt-4 pl-4">Projects</h1>
       <p>Videogame Affordances Corpus:</p>
       <a
+        href="http://www.exag.org/papers/EXAG_2019_paper_13.pdf"
+        class="w-full block pl-12 py-4 link hover:animated-link"
+        >Link to EXAG '19 Paper</a
+      >
+      <a
         href="https://docs.google.com/presentation/d/1Mi_hrZH25Q3uPHOX9hnWoV7LaxHCcgC2Dusak9WtQqw/edit?usp=sharing"
         class="w-full block pl-12 py-4 link hover:animated-link"
         >Introduction Slides from talk at Claremont Colleges Digital
