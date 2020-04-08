@@ -195,7 +195,7 @@ export default {
 
   computed: {
     ogImage: function() {
-      return require("~/assets/images/full_bg.jpg");
+      return "/images/site.png";
     }
   },
 
