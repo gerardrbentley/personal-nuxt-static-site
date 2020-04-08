@@ -5,12 +5,12 @@
   "author": "Gerard Bentley",
   "private": true,
   "scripts": {
-    "dev": "eslint --ext .js,.vue --fix --ignore-path .gitignore . && nuxt",
+    "dev": "eslint --ext .js,.vue --fix --ignore-path .gitignore --ignore-pattern 'expert.js' . && nuxt",
     "build": "nuxt build",
     "analyze": "nuxt build --analyze",
     "start": "nuxt start",
     "generate": "nuxt generate --fail-on-error",
-    "lint": "eslint --ext .js,.vue --fix --ignore-path .gitignore ."
+    "lint": "eslint --ext .js,.vue --fix --ignore-path .gitignore --ignore-pattern 'expert.js' ."
   },
   "dependencies": {
     "@chrisbielak/svg-module": "^0.1.8",

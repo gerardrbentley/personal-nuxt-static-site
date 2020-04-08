@@ -16,26 +16,26 @@
           using
           <a
             target="_blank"
-            href="https://twitter.com/GarsBar35Plus"
+            href="https://vuejs.org/"
             class="link hover:animated-link"
             ><span>Vue</span></a
           >
           +
           <a
             target="_blank"
-            href="https://twitter.com/GarsBar35Plus"
+            href="https://nuxtjs.org/"
             class="link hover:animated-link"
             ><span>Nuxt JS</span></a
           >,
           <a
             target="_blank"
-            href="https://twitter.com/GarsBar35Plus"
+            href="https://tailwindcss.com/"
             class="link hover:animated-link"
             ><span>Tailwind CSS</span></a
           >, and
           <a
             target="_blank"
-            href="https://twitter.com/GarsBar35Plus"
+            href="https://docs.gitlab.com/ee/user/project/pages/"
             class="link hover:animated-link"
             ><span>Gitlab Pages</span></a
           >.

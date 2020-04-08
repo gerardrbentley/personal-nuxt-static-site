@@ -25,10 +25,13 @@
       <PostsSection :posts="posts"></PostsSection>
       <div
         id="projects"
-        class="container border-2 mt-4 border-primary rounded mobile-full bg-primary-100"
+        class="container border-2 mt-4 border-primary rounded mobile-full h-auto bg-primary-100"
       >
         <h1 class="font-mono font-bold text-3xl pt-4 pl-4">Projects</h1>
-        <p>Videogame Affordances Corpus</p>
+        <p>Videogame Affordances Corpus:</p>
+        <a href="/vgac/expert.html" class="pl-12 py-8 link hover:animated-link"
+          >Expert Tagger Demo</a
+        >
       </div>
       <div
         id="technologies"

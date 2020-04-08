@@ -1,38 +1,17 @@
 <template>
   <div class="blog-page content relative">
-    <div class="w-full h-16 font-bold text-xl bg-dark text-white">
-      COMING SOON
+    <div class="mt-12 w-full h-32 font-bold text-xl bg-dark text-white">
+      <p>COMING SOON</p>
+      <a href="/vgac/expert.html" class="link">VGAC Expert Tagging Demo</a>
     </div>
-    <PostsSection :posts="posts" />
   </div>
 </template>
 
 <script>
-import PostsSection from "~/components/Sections/PostsSection";
-import postlist from "~/contents/activeposts.js";
-
 const title = "Gerard Bentley - Lost Crumbs";
-const description = "Full-Stack Development and Daily Computing Blog.";
+const description = "Personal Projects.";
 
 export default {
-  components: {
-    PostsSection
-  },
-  async asyncData({ app }) {
-    const posts = postlist;
-
-    async function asyncImport(postName) {
-      const wholeMD = await import(`~/contents/posts/${postName}.md`);
-      return wholeMD.attributes;
-    }
-
-    return Promise.all(posts.map(post => asyncImport(post))).then(res => {
-      return {
-        posts: res
-      };
-    });
-  },
-
   transition: {
     name: "slide-fade"
   },
