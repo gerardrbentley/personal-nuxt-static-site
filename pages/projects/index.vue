@@ -2,7 +2,25 @@
   <div class="blog-page content relative">
     <div class="mt-12 w-full h-32 font-bold text-xl bg-dark text-white">
       <p>COMING SOON</p>
-      <a href="/vgac/expert.html" class="link">VGAC Expert Tagging Demo</a>
+    </div>
+    <div
+      id="projects"
+      class="container border-2 my-4 pb-4 border-primary rounded mobile-full h-auto bg-primary-100"
+    >
+      <h1 class="font-mono font-bold text-3xl pt-4 pl-4">Projects</h1>
+      <p>Videogame Affordances Corpus:</p>
+      <a
+        href="https://docs.google.com/presentation/d/1Mi_hrZH25Q3uPHOX9hnWoV7LaxHCcgC2Dusak9WtQqw/edit?usp=sharing"
+        class="w-full block pl-12 py-4 link hover:animated-link"
+        >Introduction Slides from talk at Claremont Colleges Digital
+        Humanities</a
+      >
+
+      <a
+        href="/vgac/expert.html"
+        class="w-full block pl-12 py-4 link hover:animated-link"
+        >Expert Tagger Demo</a
+      >
     </div>
   </div>
 </template>
