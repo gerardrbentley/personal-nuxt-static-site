@@ -16,7 +16,7 @@
     "@chrisbielak/svg-module": "^0.1.8",
     "@nuxtjs/axios": "^5.9.6",
     "@nuxtjs/svg": "^0.1.6",
-    "markdown-it": "^10.0.0",
+    "markdown-it": "^12.3.2",
     "markdown-it-prism": "^2.0.3",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.7.0",
